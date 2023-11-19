@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,11 +8,14 @@ import Buscador from './components/Buscador';
 
 function App() {
   const [data, setData] = useState([]);
-
-  const [inputValue, setInputValue] = useState('');
+  const [filteredData, setFilteredData] = useState([]); // Nuevo estado para los datos filtrados
 
   const updateData = (newData) => {
     setData(newData);
+  };
+
+  const updateFilteredData = (filteredResults) => {
+    setFilteredData(filteredResults);
   };
 
   return (
@@ -23,8 +25,13 @@ function App() {
         inputValue={inputValue}
         setInputValue={setInputValue}
         data={data}
+        updateFilteredData={updateFilteredData} // Pasamos la función de actualización de datos filtrados
       />
-      <MiApi updateData={updateData} setData={setData} data={data} />
+      {filteredData.length > 0 ? ( // Verificamos si hay datos filtrados antes de renderizar MiApi
+        <MiApi data={filteredData} />
+      ) : (
+        <MiApi data={data} />
+      )}
       <Footer />
     </>
   );

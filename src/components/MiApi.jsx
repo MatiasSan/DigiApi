@@ -1,10 +1,9 @@
 // MiApi.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 
 const MiApi = ({ updateData, data, setData }) => {
-  /* const [data, setData] = useState([]); */
-  const url = 'https://digimon-api.vercel.app/api/digimon';
+  const url = 'https://digimon-api.vercel.app/api/digimon/ ';
 
   const fetchData = async () => {
     try {
