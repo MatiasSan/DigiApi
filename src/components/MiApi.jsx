@@ -20,6 +20,9 @@ const MiApi = ({ updateData, data, setData }) => {
     }
   };
 
+  //Empleando el metodo  sort
+  const sortedAscByName = data.sort((a, b) => b.name.localeCompare(a.name));
+
   useEffect(() => {
     fetchData();
   }, [updateData]);
@@ -32,7 +35,7 @@ const MiApi = ({ updateData, data, setData }) => {
         justifyContent: 'space-around',
       }}
     >
-      {data.map((digimon) => (
+      {sortedAscByName.map((digimon) => (
         <Card key={digimon.name} style={{ width: '22%', marginBottom: '80px' }}>
           <Card.Img variant="top" src={digimon.img} alt={digimon.name} />
           <Card.Body>

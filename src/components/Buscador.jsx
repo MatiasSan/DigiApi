@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 
-const Buscador = ({ inputValue, setInputValue, data }) => {
+const Buscador = ({ setInputValue, data }) => {
   const [lista, setLista] = useState([]);
 
   const handleChange = (e) => {
